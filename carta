@@ -1,0 +1,53 @@
+#include<iostream>
+#include<string.h>
+#include<windows.h>
+using namespace std;
+void edad(int age){
+    if(age<=17)
+        cout<<"Next year you'll be"<<age+1<<endl;
+    else if(age>=18)
+        cout<<"your are able to vote"<<endl;
+    else
+     cout<<"I hope you are  enjoying retirement";
+ 
+}
+void genero(string gender){
+    if(gender=="M")
+        cout<<"him";
+    else
+        cout<<"her";
+		}
+int main(){
+    string nombre;
+    string amigo;
+    string gender;
+    string estado;
+    string other_amigo;
+    string autor;
+    int age;
+    cout<<"Dear"<<" ";cin>>nombre;cout<<"I tell you that I've done well since our farewell"<<endl;
+    cout<<"Have you seen"<<" (enter name the other friend).. lately"<<endl;
+    cin>>amigo;
+    cout<<"have you seen  "<<amigo<<" "<<"lately?"<<endl;
+    cout<<"I'm in the Bahamas and what do you tell me? ";
+    cout<<"and just got married last week I'm very happy"<<endl;
+    cout<< "(enter the recipient's gender)F or M....";cin>>gender;  
+	while((gender!="M") && (gender!="F"))
+                    {cin>>gender;}
+	cout<<"If you see "<<" "<<amigo<<", please ask "; genero(gender);cout<<" to call me"<<endl;
+	cout<<"what is the age of the recipient?"<<endl; cin>>age; while((age<0)||(age>90))
+                                                    {cin>>age;}
+    edad(age);
+    cout<<"You friend"<<" ";cin>>autor;
+    system("cls");
+    cout<<"Dear, "<<nombre<<endl;
+    cout<<"I tell you that I've done well since our farewell"<<endl;
+    cout<<"I'm in the Bahamas and what do you tell me? ";
+    cout<<"and  just got married last week I'm very happy"<<endl;
+   	cout<<"If you see "<<" "<<amigo<<", please ask "; genero(gender);cout<<" to call me"<<endl;
+    edad(age);
+    cout<<"You friend ";cout<<autor<<endl;
+    system("PAUSE");
+
+    return 0;
+    }
