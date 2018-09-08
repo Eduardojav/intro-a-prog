@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	string a="hola mundo";
+	cout<< a <<endl;
+	return 0;
+}
+
+/*
+1.[Error] 'cout' was not declared in this scope, por no escribir debajo, "use namespace std;" despues de importar librerias, tambien cuando te equivocas en la sintaxis de importar funciones de la clase std
+por ejemplo. 'std:cout<<"hola mundo"'; despues de declarar la clase std para importar una funcion se usa "::" asi que, deberia ser 'std::cout<<"hola mundo" '; 
+2.[Error] expected ';' before 'return', por no poner un punto y coma despues del hola mundo.
+3.si se pone en el return del main un numero mayor a 1 no se ejecuta el codigo
+4.   si borro la importacion del iostream (biblioteca que contiene las funciones de entrada y salida de c++ . Viene Input/Output Stream) mi programa no podra transportar datos, por lo tanto es inutil
+5.[Error] ld returned 1 exit status, sucede cuando borro la funcion main
+6. si borras los parentesis de la funcion main, todo el codigo interno del main no se ejecuta y manda error de sintaxis
+7.	[Error] expected '}' at end of input borre el corchete del final por lo tanto mi codigo no tiene un fin, genera un error 
+8.[Error] 'hola' was not declared in this scope al quitarle los corchetes iniciales al hola mundo el programa lo trata como una variable, la cual no esta definida y genera error
+9.-[Error] expected primary-expression before ';' token, al aumentar '<<' al final del hola mundo y sin colocar un 'endl;'
+10.[Error] invalid conversion from 'const char*' to 'int' [-fpermissive] al crear una variable con el contenido del texto de "hola mundo" y declararla como entero, genera un error de conversion
+*/
