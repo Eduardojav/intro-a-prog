@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+int suma(int a, int b){
+	return a+b;}
+int division(int a, int b){
+	return a*b;}
+int multi(int a, int b){
+	return a*b;}
+int resta(int a, int b){
+	return a-b;}
+int mayor(int a, int b){
+	if(a>b)
+	cout<< a << " es mayor"<<endl;
+	else if(b>a)
+	cout<< b << " es mayor"<<endl;
+	else
+	cout<< a << " es igual a "<<b<< "mayor"<<endl;
+	}
+int ordenar(int a[3],int moder){
+    for (int i=0;i<3;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<2;i++){
+            for(int j=i+1; j<3;j++){
+        if(a[i]<a[i+1]){
+            moder=a[i];
+            a[i]=a[j];
+            a[j]=moder;}
+                                    }
+                        }
+	}
+
+
+
+int main() {
+	int opcion;
+	int numero1;
+	int numero2;
+	int a;
+	cout<<"que operacion desea realizar\n1.-suma \n2.- resta \n3.- multiplicaion \n4.- division"<<endl;
+	cin>>opcion;
+	if (opcion==1){
+		cout<<"ingrese 2 numeros"<<endl;
+		cin>>numero1;cin>>numero2;
+		a=suma(numero1,numero2);
+		cout<<a<<endl;}
+	else if(opcion==2){
+		cout<<"ingrese 2 numeros"<<endl;
+		cin>>numero1;cin>>numero2;
+		a=resta(numero1,numero2);
+		cout<<a<<endl;}
+	else if(opcion==2){
+	cout<<"ingrese 2 numeros"<<endl;
+		cin>>numero1;cin>>numero2;
+		a=multi(numero1,numero2);
+		cout<<a<<endl;}
+	else if(opcion==2){
+		cout<<"ingrese 2 numeros"<<endl;
+		cin>>numero1;cin>>numero2;
+		a=division(numero1,numero2);
+		cout<<a<<endl;}
+    mayor(numero1,numero2);
+    return 0;
+	}
