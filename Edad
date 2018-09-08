@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include<windows.h>
+using namespace std;
+int age;
+string firstname;
+int main(){
+cout <<"Ingrese su primer nombre"<<endl;
+cin>>firstname;
+cout <<"por favor digite su edad"<<endl;
+cin>>age;
+cout <<"Buenas,"<<firstname<<"("<<age<<")"<<endl;
+system("pause");
+return 0;
+}
