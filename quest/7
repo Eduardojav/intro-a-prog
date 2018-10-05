@@ -1,0 +1,59 @@
+#include<iostream>
+#include<string.h>
+#include <vector>
+using namespace std;
+
+int main(){
+double a,d,j;
+	string b,f,g;
+	double mac, mim;
+	double num[2];
+	string type[2];
+	int c=0;
+	int datos[20];
+	cin>>a>>b;
+
+    mim =a;mac =a;
+    g=b;
+    f=b;
+    cout<<mim<<" "<<g<<" es el menor"<<endl;
+	cout<<mac<<" "<<f<<" es el mayor"<<endl;
+	do
+	{
+    cin>>a>>b;
+    if (b=="ft"){
+        d=a*30.48;
+        if(d<mim){
+        g=b;
+        mim=a;}
+        if(d>mac){
+        mac=a;
+        f=b;}
+    }
+    else if (b=="cm"){
+        d=a;
+        if(d<mim){
+        g=b;
+        mim=a;}
+        if(d>mac){
+        mac=a;
+        f=b;}}
+
+    else {
+        d=a*100;
+        if(d<mim){
+        g=b;
+        mim=a;}
+        if(d>mac){
+        mac=a;
+        f=b;}}
+
+    ++c;
+    ;
+    cout<<mim<<" "<<g<<" es el menor"<<endl;
+    cout<<mac<<" "<<f<<" es el mayor"<<endl;
+    }
+	while((char(a)!='#'));
+	return 0;
+
+}
