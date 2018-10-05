@@ -1,0 +1,114 @@
+#include<iostream>
+#include<string.h>
+#include <vector>
+using namespace std;
+void orden(vector<double> vec){
+	double aux;
+	for (int i=0; i<vec.size()-1; i++) {
+		for (int j=i+1; i<vec.size(); i++) {
+			if (vec[i]<vec[j]){
+				aux=vec[i];
+				vec[j]=aux;
+				vec[i]=vec[j];}
+			}}
+        
+} 
+void print(double mac, double mim, string g, string f, double j,vector<double> vec ){
+     cout<<"la suma es"<<j<<endl; 
+	cout<<mim<<" "<<g<<" es el menor"<<endl;
+    cout<<mac<<" "<<f<<" es el mayor"<<endl;
+    orden(vec);
+    for (int i=0; i<vec.size(); i++) {
+        cout <<" ; " << vec[i] ;}
+}
+
+int main(){
+	double a,d,mac, mim,j=0;
+	string b,f,g;
+	vector<double> todo;
+	double num[]={0,0};
+	int c=1;
+	int datos[20];
+
+	do{
+	
+	cin>>a>>b;
+	if ((b!="ft")&&(b!="cm")&&(b!="m")&&(b!="in"))
+		cout<<" nos conozco esa medida"<<endl;}
+	while ((b!="ft")&&(b!="cm")&&(b!="m")&&(b!="in"));
+   do{
+   	if (c==1){
+	   
+    mim =a;mac =a;
+    num[0]=a;
+    num[1]=a;
+	g=b;
+    f=b;
+    c++;
+	}
+    if (b=="ft"){
+        d=a*0.3048;
+        j+=d;
+        todo.push_back (d);
+        if(d<num[0]){
+        g=b;
+        num[0]=d;
+        mim=a;}
+        if(d>num[1]){
+        mac=a;
+        num[0]=d;
+        f=b;}
+        if (c!=1)
+print(mac, mim, g, f, j ,todo);
+    }
+    else if (b=="cm"){
+        d=a*0.01;
+        todo.push_back (d);
+        j+=d;
+        if(d<num[0]){
+        g=b;
+        mim=a;}
+        if(d>num[1]){
+        mac=a;
+        num[1]=d;
+        f=b;}
+   
+		print(mac, mim, g, f, j ,todo);}
+     else if (b=="in"){
+        d=a*0.0254;
+        j+=d;
+        todo.push_back (d);
+        if(d<num[0]){
+        g=b;
+        mim=a;}
+        if(d>num[1]){
+        mac=a;
+        num[1]=d;
+        f=b;}
+        
+		 print(mac, mim, g, f, j ,todo);}
+
+    else if(b=="m") {
+        d=a;
+        j+=d;
+        todo.push_back (d);
+        if(d<num[0]){
+        g=b;
+        num[0]=d;
+        mim=a;}
+        if(d>num[1]){
+        mac=a;
+        num[1]=d;
+        f=b;}
+        print(mac, mim, g, f, j ,todo);
+		}
+    else{
+    	cout<<" nos conozco esa medida"<<endl;
+	}
+	cin>>a>>b;
+
+    }
+	while((char(a)!='#'));
+	return 0;
+
+}
