@@ -2,23 +2,20 @@
 #include<string.h>
 #include <vector>
 using namespace std;
-void orden(vector<double> vec,int i=0){
-	int x;
-	double aux; 
-	for(i=0;i<numposiciones - 1;i++){
-        for(x=i+1;x<numposiciones;x++){
-	for(i=0;i<vec.size();i++){
-        for(x=i+1;x<vec.size()-1;x++){
-        if(vec[i]>vec[x]){
-            aux=vec[i];
-            vec[i]=vec[x];
-            vec[x]=aux;
+void orden(vector<double> todo){
+double aux;
+for(int i=0;i<todo.size()-1;i++){
+        for(int x=i+1;x<todo.size();x++){
+        if(todo[i]>todo[x]){
+            aux=todo[i];
+            todo[i]=todo[x];
+            todo[x]=aux;
         }
     }
-
-} }
+}
+  }
 void print(double mac, double mim, string g, string f, double j,vector<double> vec ){
-     cout<<"la suma es"<<j<<endl; 
+     cout<<"la suma es"<<j<<endl;
 	cout<<mim<<" "<<g<<" es el menor"<<endl;
     cout<<mac<<" "<<f<<" es el mayor"<<endl;
     for (int i=0; i<vec.size(); i++) {
@@ -26,7 +23,7 @@ void print(double mac, double mim, string g, string f, double j,vector<double> v
 }
 
 int main(){
-	double a,d,mac, mim,j=0;
+	double a,d,mac, mim,aux,j=0;
 	string b,f,g;
 	vector<double> todo;
 	double num[]={0,0};
@@ -34,14 +31,14 @@ int main(){
 	int datos[20];
 
 	do{
-	
+
 	cin>>a>>b;
 	if ((b!="ft")&&(b!="cm")&&(b!="m")&&(b!="in"))
 		cout<<" nos conozco esa medida"<<endl;}
 	while ((b!="ft")&&(b!="cm")&&(b!="m")&&(b!="in"));
    do{
    	if (c==1){
-	   
+
     mim =a;mac =a;
     num[0]=a;
     num[1]=a;
@@ -61,10 +58,18 @@ int main(){
         mac=a;
         num[0]=d;
         f=b;}
-        if (c!=1){
-		orden(todo);
-print(mac, mim, g, f, j ,todo);}
+       int aux;
+ for(int i=0;i<todo.size()-1;i++){
+        for(int x=i+1;x<todo.size();x++){
+        if(todo[x]<todo[i]){
+            aux=todo[i];
+            todo[i]=todo[x];
+            todo[x]=aux;}
+        }
     }
+
+        print(mac, mim, g, f, j ,todo);}
+
     else if (b=="cm"){
         d=a*0.01;
         todo.push_back (d);
@@ -76,10 +81,16 @@ print(mac, mim, g, f, j ,todo);}
         mac=a;
         num[1]=d;
         f=b;}
-   
-	
-		orden(todo);
-print(mac, mim, g, f, j ,todo);}
+        for(int i=0;i<todo.size()-1;i++){
+        for(int x=i+1;x<todo.size();x++){
+        if(todo[x]<todo[i]){
+            aux=todo[i];
+            todo[i]=todo[x];
+            todo[x]=aux;}
+        }
+    }
+
+        print(mac, mim, g, f, j ,todo);}
      else if (b=="in"){
         d=a*0.0254;
         j+=d;
@@ -91,8 +102,16 @@ print(mac, mim, g, f, j ,todo);}
         mac=a;
         num[1]=d;
         f=b;}
-        orden(todo);
-		 print(mac, mim, g, f, j ,todo);}
+        for(int i=0;i<todo.size()-1;i++){
+        for(int x=i+1;x<todo.size();x++){
+        if(todo[x]<todo[i]){
+            aux=todo[i];
+            todo[i]=todo[x];
+            todo[x]=aux;}
+        }
+    }
+
+        print(mac, mim, g, f, j ,todo);}
 
     else if(b=="m") {
         d=a;
@@ -106,14 +125,22 @@ print(mac, mim, g, f, j ,todo);}
         mac=a;
         num[1]=d;
         f=b;}
-            orden(todo);
+        for(int i=0;i<todo.size()-1;i++){
+        for(int x=i+1;x<todo.size();x++){
+        if(todo[x]<todo[i]){
+            aux=todo[i];
+            todo[i]=todo[x];
+            todo[x]=aux;}
+        }
+    }
+
         print(mac, mim, g, f, j ,todo);
 		}
     else{
     	cout<<" nos conozco esa medida"<<endl;
 	}
 	cin>>a>>b;
-
+    orden(todo);
     }
 	while((char(a)!='#'));
 	return 0;
