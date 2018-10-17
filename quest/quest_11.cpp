@@ -4,13 +4,13 @@
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void primo(long cant,vector<int> & primos){
-	int a=0;
+	unsigned long long a=0;
 	primos.push_back(2);
-	for (int i=2;i<=cant;i++){
-		for (int j=0;j<primos.size();j++){
+	for (unsigned long long i=2;i<=cant;i++){
+		for (unsigned long long j=0;j<primos.size();j++){
 			if (i%primos[j]==0)
 				a=a+1;
-			if(a>1)
+			if(a>=1)
 			break;
 		}
 		if (a<1){
@@ -19,11 +19,12 @@ void primo(long cant,vector<int> & primos){
 	}
 	/*for(int i=0;i<primos.size();i++){
 	cout<<primos[i]<<" , ";}*/}
-void decir(long cant,vector<int> &primos,int a=0,int gf=0){
-	
-	int c=sqrt(cant);
+void decir(long long cant,vector<int> &primos,int a=0,int gf=0){
+
+	unsigned long long c=sqrt(cant);
 	primo(c,primos);
-	for(int i=0;i<primos.size();i++)
+    cout<<c<<endl<<primos.size()<<endl;
+	for(unsigned long long i=0;i<primos.size();i++)
 		if ((cant%primos[i]==0)&&(cant!=primos[i])){
 			a=2;
 			if(a=2){
@@ -35,14 +36,16 @@ void decir(long cant,vector<int> &primos,int a=0,int gf=0){
 	return;}
 	}
 
-			
+
 
 int main() {
 	vector<int> primos;
 	while (true){
-	long cant;
+	unsigned long long cant;
 	cin>>cant;
 	decir(cant,primos);}
 	return 0;
-	
+
 }
+
+
