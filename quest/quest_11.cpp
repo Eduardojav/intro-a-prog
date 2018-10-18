@@ -43,9 +43,8 @@ int main() {
 	while (true){
 	unsigned long long cant;
 	cin>>cant;
-	decir(cant,primos);}
+	decir(cant,primos);
+	primos.clear();}
 	return 0;
 
 }
-
-
