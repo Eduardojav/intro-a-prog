@@ -11,7 +11,6 @@ int trifuerza(char a,char b){
 		cout<<"Usted gano : roca vs tijera"<<endl;
 		return 1;}
 	else if((a=='p')&&(b=='r')){
-
 		cout<<"Usted gano : papel vs roca "<<endl;
 		return 1;}
 	else if((a=='p')&&(b=='t')){
