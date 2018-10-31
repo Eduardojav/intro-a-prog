@@ -11,13 +11,14 @@ int  toros(int a [4],int b[4] ){
 	for(int i=0;i<4;i++){
 	for(int j=0;j<4;j++){
 	if((a[i]==b[j])&&(i==j))
-		toros++;	
+		toros++;
 	if(a[i]==b[j])
 		vacas++;
 	}}
 	if(vacas>4){
 		vacas=4;
 	}
+	cout<<endl;
 	cout<<"hay "<<toros<<"toros"<<endl;
 	cout<<"hay "<<vacas<<"vacas"<<endl;
 	return toros;
@@ -25,10 +26,7 @@ int  toros(int a [4],int b[4] ){
 bool revisar(int b,int a[]){
 	for(int i=0;i<4;i++){
 		if(b==a[i]){
-			
-			return true;
-		}
-	}
+			return true;}}
 	return false;
 }
 void trifuerza(int a[]){
@@ -49,6 +47,8 @@ void trifuerza(int a[]){
 int main(){
 	int a[4];
 	int b[4];
+	int cont;
+	bool error=true;
 	string life;
 	trifuerza(a);
 	int totos;
@@ -58,14 +58,21 @@ int main(){
 	do {
 	for(int i=0;i<4;i++){
 		cin>>b[i];
-		cout<<b[i];}
-	totos=toros(a,b);}
+		cout<<b[i];
+		for(int j=0;j<10;j++){
+            if(b[i]==j)
+                error=false;}
+		if(error)
+            throw "lo que ingreso no es un digito con valor numerico";
+        error=true;}
+        totos=toros(a,b);}
 	while(totos!=4);
 	cout<<"desea jugar nuevamente? \n Si/No";
 	cin>>life;
 	if(life=="No")
 		jugar=false;
-	trifuerza(a);}
-	return 0;
+	trifuerza(a);}}
 
-}}
+    catch(const char* exp){
+    cout<<exp;}
+    return 0;}
