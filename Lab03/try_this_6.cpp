@@ -12,11 +12,9 @@ int  toros(int a [4],int b[4] ){
 	for(int j=0;j<4;j++){
 	if((a[i]==b[j])&&(i==j))
 		toros++;
-	if(a[i]==b[j])
+	if(a[i]==b[j]&&a[i]!=b[i])
 		vacas++;
 	}}
-	if(vacas>4){
-		vacas=4;
 	}
 	cout<<endl;
 	cout<<"hay "<<toros<<"toros"<<endl;
