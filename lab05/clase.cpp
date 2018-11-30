@@ -2,38 +2,43 @@
 #include<stdlib.h>
 #include<string.h>
 using namespace std;
-class Auto{
-private:
-    string placa,motor,color;
-    bool SOAT,energy,tecni;
-    int ano,vin,serie;
-    double gasolina,km=0;
-protected:
-    int marca1;
-    string marca;
-public:
     enum Marca {
-        TOYOTA,SUZUKI,CHERVOLET,AUDI,KIA,HYUNDAI};
+        TOYOTA=1,SUZUKI,CHERVOLET,AUDI,KIA,HYUNDAI};
     enum Motor{
         b1,b2,b3};
-    Marca in_marca(int x){
-    if(x<TOYOTA || x>HYUNDAI) error("marca no existente");
-    return Marca(x);}
-    Marca operator ++(Marca tipo){
+    enum Color{ BLANCO=1, NEGRO,ROJO, AZUL, VERDE, GRIS ,PLOMO};
+Marca operator ++(Marca tipo){
         if (tipo==HYUNDAI)
             tipo=TOYOTA;
         else
             tipo=Marca(tipo+1);
         return tipo ;}
-
-    /*ostream& operator << (ostream &o,const Marca &p)
-{   static const char* Marca_tbl[6]={
-        "TOYOTA","SUZUKI","CHERVOLET","AUDI","KIA","HYUNDAI";
+ ostream& operator << (ostream &o,const Marca &p)
+{   static const char* Marca_tbl[6]={"TOYOTA","SUZUKI","CHERVOLET","AUDI","KIA","HYUNDAI"
     };
     return o << Marca_tbl[p-1];
-}*/
+}
+
+ostream& operator << (ostream &o,const Color &p)
+{   static const char* Marca_tbl[7]={"BLANCO", "NEGRO","ROJO", "AZUL", "VERDE", "GRIS" ,"PLOMO"};
+    return o << Marca_tbl[p-1];
+}
+class Auto{
+private:
+    Marca marca;
+    Color color;
+    string motor;
+    string placa;
+    bool SOAT,energy,tecni;
+    int ano,vin,serie;
+    double gasolina,km=0;
+protected:
+public:
+    Marca in_marca(int x){
+    if(x<TOYOTA || x>HYUNDAI) error("marca no existente");
+    return Marca(x);}
     Auto(int);
-    Auto(string,string,string,string ,bool ,bool ,bool ,int , int ,int ,double ,double );
+    Auto(string,Marca,string,Color ,bool ,bool ,bool ,int , int ,int ,double ,double );
     void error(string);
     void salir();
     void pasear();
@@ -44,10 +49,9 @@ public:
 };
 Auto::Auto(int){
         placa="sda";
-        Marca j=TOYOTA;
-        marca=j;
-        motor="_asdasd";
-        color="_color";
+        marca=TOYOTA;
+        motor="b1";
+        color=BLANCO;
         SOAT=true;
         energy=false;
         km=0;
@@ -57,7 +61,7 @@ Auto::Auto(int){
         serie=123123;
 }
 
-Auto::Auto(string _placa, string _marca,string _motor,string _color,bool _soat,bool _ener,bool _tecni,int _serie, int _vin,int _ano,double gasolina,double kilometraje=0){
+Auto::Auto(string _placa, Marca _marca,string _motor,Color _color,bool _soat,bool _ener,bool _tecni,int _serie, int _vin,int _ano,double gasolina,double kilometraje=0){
         placa=_placa;
         marca=_marca;
         motor=_motor;
@@ -78,7 +82,7 @@ void Auto::salir(){
     cout<<"el auto no puede o debe salir"<<endl;
     }
 void Auto::descrpg(){
-cout<<"es de la marca: "<<marca<<endl;
+    cout<<"es de la marca: "<<marca<<endl;
     cout<<"n° de serie:"<<serie<<endl;
     cout<<"numero VIN: "<<vin<<endl;
     cout<<"es de color: "<<color<<endl;
@@ -106,21 +110,14 @@ else{
     cout<<"usted no puede pasear en este vehiculo"<<endl;
 }
 }
-enum Marca {
-        TOYOTA,SUZUKI,CHERVOLET,AUDI,KIA,HYUNDAI};
-Marca operator ++(Marca tipo){
-        if (tipo==HYUNDAI)
-            tipo=TOYOTA;
-        else
-            tipo=Marca(tipo+1);
-        return tipo ;}
+
 int main(){
 
     Marca mar = TOYOTA;
     cout<< mar<<" "<<++mar;
-    /*Auto primo(12);
-    //Auto primo1("VH6737H","TOYOTA","P539PAS","BLANCO",true,false,true,125871,154785,1995,56.45);
-    primo.descrpg();*/
+    Auto primo(12);
+    Auto primo1("VH6737H",TOYOTA,"P539PAS",BLANCO,true,false,true,125871,154785,1995,56.45);
+    primo.descrpg();
     /*primo1.descrpg();
     primo1. salir();
     primo1. legal();
