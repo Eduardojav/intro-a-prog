@@ -1,0 +1,38 @@
+bool Link::find(const string& a ){
+    Link* b=this;
+while(b->prev!=NULL){
+    if(b->prev->value==a||b->value==a){
+        return true;}
+        b=b->prev;}
+while(b->succ!=NULL){
+    if(b->succ->value==a||b->value==a){
+        return true;}
+    b=b->succ;}
+    return false;
+}
+const char* findX(const char* a, const char* b){
+    int x=0;
+    char y=b[2];
+    char*j ;
+    while(a[x]!='\0'){
+        if(a[x]==b[0]){
+        return j;}
+        x++;}
+    return NULL;
+    }
+void to_lower(char *e){
+    char pr[]={};
+    int i=0;
+    int j=0;
+    int a=0;
+    int b=0;
+while(e[i]!='\0'){
+    pr[i]=e[i];
+    if(pr[i]<'a')
+        pr[i]=pr[i]+32;
+    i++;
+}
+e=pr;
+ cout<<pr<<endl;
+ cout<<e<<endl;
+}
